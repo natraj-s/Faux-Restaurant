@@ -1,30 +1,18 @@
-
+// Dependencies 
+//============================================================
 var http = require("http");
-var PORT = 3000;
+var PORT = 5406;
 var express = require("express");
+var app = express();
 
-function handleRequest(request, response) {
-  response.end("It Works!! Path Hit: " + request.url);
-}
-	var server = http.createServer(handleRequest);
-	server.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
-});
-
-
-
-var Reservations = [
+var reservations = [
   {
   Name: "",
   PhoneNumber: "",
   Email: "",
   UniqueID: "",
-
-
 }
 ]
-
-
 
 // Routes
 // =============================================================
@@ -38,12 +26,12 @@ app.get("/newreservation", function(req, res) {
   res.sendFile(path.join(__dirname, "addreservation.html"));
 });
 
-// Get all characters
+// Get all reservations
 app.get("/allreservations", function(req, res) {
   res.json(reservations);
 });
 
-// Search for Specific Character (or all characters) - provides JSON
+// Search for reservation - provides JSON
 app.get("/api/:reservations?", function(req, res) {
   var chosen = req.params.reservations;
 
