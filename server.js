@@ -13,7 +13,8 @@ function handleRequest(request, response) {
 
 
 
-var Reservations ={
+var Reservations = [
+  {
   Name: "",
   PhoneNumber: "",
   Email: "",
@@ -21,6 +22,8 @@ var Reservations ={
 
 
 }
+]
+
 
 
 // Routes
