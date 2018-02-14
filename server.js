@@ -1,22 +1,37 @@
 // Dependencies 
-//============================================================
+//
 var http = require("http");
-var PORT = 5406;
-var express = require("express");
+var PORT = 3000;
+// var express = require("express");
 var path = require("path");
-var app = express();
+var bodyParser = require("body-parser");
 
-var reservations = [
-  {
-  Name: "",
-  PhoneNumber: "",
-  Email: "",
-  UniqueID: "",
+
+function handleRequest(request, response) {
+  response.end("It Works!! Path Hit: " + request.url);
 }
-]
+	var server = http.createServer(handleRequest);
+	server.listen(PORT, function() {
+  console.log("Server listening on: http://localhost:" + PORT);
+});
+
+var reservations =[
+  {
+  name: "",
+  phoneNumber: "",
+  email: "",
+  uniqueId: "",
+},
+
+{
+name: "",
+phoneNumber: "",
+email: "",
+uniqueId: "",
+}];
 
 // Routes
-// =============================================================
+// 
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
