@@ -1,4 +1,5 @@
-
+// Dependencies 
+//
 var http = require("http");
 var PORT = 3000;
 // var express = require("express");
@@ -30,7 +31,7 @@ uniqueId: "",
 }];
 
 // Routes
-// =============================================================
+// 
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
@@ -41,12 +42,12 @@ app.get("/newreservation", function(req, res) {
   res.sendFile(path.join(__dirname, "addreservation.html"));
 });
 
-// Get all characters
+// Get all reservations
 app.get("/allreservations", function(req, res) {
   res.json(reservations);
 });
 
-// Search for Specific Character (or all characters) - provides JSON
+// Search for reservation - provides JSON
 app.get("/api/:reservations?", function(req, res) {
   var chosen = req.params.reservations;
 
