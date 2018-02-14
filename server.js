@@ -1,7 +1,10 @@
 
 var http = require("http");
 var PORT = 3000;
-var express = require("express");
+// var express = require("express");
+var path = require("path");
+var bodyParser = require("body-parser");
+
 
 function handleRequest(request, response) {
   response.end("It Works!! Path Hit: " + request.url);
@@ -11,17 +14,20 @@ function handleRequest(request, response) {
   console.log("Server listening on: http://localhost:" + PORT);
 });
 
+var reservations =[
+  {
+  name: "",
+  phoneNumber: "",
+  email: "",
+  uniqueId: "",
+},
 
-
-var Reservations ={
-  Name: "",
-  PhoneNumber: "",
-  Email: "",
-  UniqueID: "",
-
-
-}
-
+{
+name: "",
+phoneNumber: "",
+email: "",
+uniqueId: "",
+}];
 
 // Routes
 // =============================================================
